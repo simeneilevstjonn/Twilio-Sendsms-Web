@@ -2,10 +2,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace SendsmsWeb
 {
@@ -13,8 +9,11 @@ namespace SendsmsWeb
     {
         public static void Main(string[] args)
         {
+            Config = new ProgramConfig();
             CreateHostBuilder(args).Build().Run();
         }
+
+        public static ProgramConfig Config { get; private set; }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
             Host.CreateDefaultBuilder(args)
