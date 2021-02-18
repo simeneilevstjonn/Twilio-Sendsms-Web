@@ -38,7 +38,10 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-home"></i> Home</a>
+                    <a class="nav-link" asp-area="" asp-controller="Home" asp-action="Index"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" asp-area="" asp-controller="Sms" asp-action="BuildMessage"><i class="fas fa-plus"></i> New message</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="#"><i class="fas fa-user"></i> Contacts</a>
