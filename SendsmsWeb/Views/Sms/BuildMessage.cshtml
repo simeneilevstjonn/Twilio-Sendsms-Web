@@ -1,0 +1,44 @@
+﻿
+@{
+    ViewData["Title"] = "New message";
+}
+
+<div class="p-3">
+    <h2>New message</h2>
+
+    <!-- Message form -->
+    <form asp-action="SubmitMessage" asp-controller="Sms" asp-area="">
+
+        <!-- Sender field -->
+        <div class="form-group mb-2">
+            <label for="sender" id="sender-label">Sender</label>
+            <input class="form-control" type="text" placeholder="Sender" id="sender" name="sender" aria-labelledby="sender-label">
+            <div class="invalid-feedback">
+                Invalid alphanumeric sender or telephone number.
+            </div>
+        </div>
+
+        <!-- Recipient -->
+        <div class="form-group mb-2">
+            <label for="recipient" id="recipient-label">Recipient</label>
+            <input class="form-control" type="text" placeholder="Recipient" id="recipient" name="recipient" aria-labelledby="recipient-label">
+            <div class="invalid-feedback">
+                Invalid telephone number.
+            </div>
+        </div>
+
+        <!-- Text area -->
+        <div class="form-group mb-2">
+            <label for="message" id="message-label">Message</label>
+            <textarea class="form-control" placeholder="Message" id="message" name="message" aria-labelledby="message-label" style="height:10rem"></textarea>
+            <div class="invalid-feedback">
+                Message is too long. Max 16000 characters.
+            </div>
+        </div>
+
+        <!-- Submit button-->
+        <div class="d-flex flex-row-reverse">
+            <input type="submit" id="submit" value="Send" class="btn btn-primary"/>
+        </div>
+    </form>
+</div>
