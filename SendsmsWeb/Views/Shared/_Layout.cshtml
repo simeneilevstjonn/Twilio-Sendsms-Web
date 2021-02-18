@@ -23,11 +23,34 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="bg-primary container-fluid p-3 mb-5">
-        <!-- Heading -->
-        <a asp-area="" asp-controller="Home" asp-action="Index">
+    <header class="navbar navbar-expand-lg bg-primary container-fluid p-3 mb-5">
+        <!-- Branding -->
+        <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">
             <h2>SendSMS Web</h2>
         </a>
+        
+        <!-- Toggler -->
+        <button class="navbar-toggler text-white" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fas fa-bars"></i>
+        </button>
+
+        <!-- Links -->
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#"><i class="fas fa-home"></i> Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-user"></i> Contacts</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-paper-plane"></i> Senders</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#"><i class="fas fa-clock"></i> Schedule</a>
+                </li>
+            </ul>
+        </div>
     </header>
 
     <!-- Main section -->
