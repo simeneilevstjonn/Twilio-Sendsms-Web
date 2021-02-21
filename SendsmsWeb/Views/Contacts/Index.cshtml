@@ -1,0 +1,43 @@
+﻿@model ContactsViewModel
+@using SendsmsWeb.Contacts
+@{
+    ViewData["Title"] = "Contacts";
+}
+
+<h1>Contacts</h1>
+
+<!-- Main row -->
+<div class="row">
+    <!-- Filter col -->
+    <div class="col col-md-3">
+
+    </div>
+    
+    <!-- Contacts col -->
+    <div class="col col-md-9">
+        <!-- Contacts table -->
+        <table class="table table-dark">
+            <!-- Table header -->
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Telephone number</th>
+                    <th>Company &amp; job title</th>
+                    <th>Tags</th>
+                </tr>
+            </thead>
+            <!-- Table body -->
+            <tbody>
+                @foreach (Contact Contact in Model.Contacts)
+                {
+                    <tr>
+                        <td>@Contact.FullName</td>
+                        <td>@Contact.PhoneNumber</td>
+                        <td>@Contact.JobTitleAndCompany</td>
+                        <td>@Html.Raw(Contact.TagsAsLinks)</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
