@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlTypes;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.Data.SqlClient;
@@ -61,7 +62,15 @@ namespace SendsmsWeb
                     // Iterate through each column and add it to the list
                     for (int i = 0; i < DataReader.FieldCount; i++)
                     {
-                        Row.Add(DataReader.GetString(i));
+                        // Encapsulate in a try/catch in case of null values
+                        try
+                        {
+                            Row.Add(DataReader.GetString(i));
+                        }
+                        catch (SqlNullValueException)
+                        {
+                            Row.Add(null);  
+                        }
                     }
 
                     // Add the row to the return list
@@ -76,6 +85,13 @@ namespace SendsmsWeb
             // Return the read rows
             return Rows;
         }
+
+        /// <summary>
+        /// Escapes all single quotes to avoid SQL injection.
+        /// </summary>
+        /// <param name="Input">The input string</param>
+        /// <returns>The input string with single quotes escaped.</returns>
+        public static string EscapeSql(string Input) => Input.Replace("'", "''");
 
     }
 }
