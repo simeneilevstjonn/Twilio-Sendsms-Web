@@ -81,7 +81,7 @@ namespace SendsmsWeb.Contacts
             }
 
             // Return contact getter with conditions
-            return await GetContactsFromSql($"SELECT [PhoneNumber], [FullName], [IndexName], [Company], [JobTitle], [Comment], [Tags] FROM [dbo].[Contacts] WHERE ${Conditions} ORDER BY [IndexName] ASC;");
+            return await GetContactsFromSql($"SELECT [PhoneNumber], [FullName], [IndexName], [Company], [JobTitle], [Comment], [Tags] FROM [dbo].[Contacts] WHERE {Conditions} ORDER BY [IndexName] ASC;");
         }
 
         /// <summary>
